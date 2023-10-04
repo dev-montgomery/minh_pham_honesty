@@ -9,6 +9,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-size: 62.5%;
     }
 
     body {
@@ -21,13 +22,60 @@
       width: 200px;
       height: 200px;
       background: #333;
-      position: absolute;
+      position: relative;
       border-radius: 50%;
+      z-index: 5;
+    }
+
+    section {
+      padding: 10px;
+      margin: 0 auto;
+    }
+    
+    section .box {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      padding: 50px;
+    }
+
+    section .box h1 {
+      font-size: 3rem;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    section .box p {
+      font-size: 4rem;
+    }
+
+    .before {
+      z-index: -1;
+    }
+
+    .after {
+      z-index: 10;
+      /* opacity: 0; */
+      transition: opacity 0.3s ease-in-out;
     }
   </style>
 </head>
 <body>
   <div class="spotlight"></div>
+  <section>
+    <div class="before box">
+      <p>
+        When you live by daylight with angels at your side. In order now bestowed by the light of the sunrise. And you remember everything only 'til the sun recedes once again, and the night comes down like heaven.
+      </p>
+      <h1>The Night Does Not Belong to God</h1>
+    </div>
+    <div class="after box">
+      <p>
+        The whites of your eyes turn black in low light. In turning divine, we tangle endlessly. Like lovers entwined, I know for the last time you will not be mine. So give me the night, the night, the night.
+      </p>
+      <h1>The Night Belongs To You</h1>
+    </div>
+  </section>
   <script>
     const spotlight = document.querySelector('.spotlight');
 
@@ -38,6 +86,16 @@
       spotlight.style.left = mouseX - 100 + 'px';
       spotlight.style.top = mouseY - 100 + 'px'; 
     });
+
+    // const honesty = document.querySelector('.after');
+
+    // spotlight.addEventListener('mouseenter', () => {
+    //   honesty.style.opacity = 1;
+    // });
+
+    // spotlight.addEventListener('mouseleave', () => {
+    //   honesty.style.opacity = 0;
+    // });
   </script>
 </body>
 </html>
