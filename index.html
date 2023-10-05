@@ -20,26 +20,28 @@
     }
 
     .spotlight {
+      position: absolute;
       width: 200px;
       height: 200px;
       background: #ff6d5a;
-      position: absolute;
       border-radius: 50%;
       pointer-events: none;
-      z-index: 1;
+    }
+    
+    .container {
+      margin: 0 auto;
     }
 
     .text-container {
-      position: relative;
-      z-index: 2;
+      display: flex;
+      /* flex-direction: column; */
     }
     
     .text-container .box {
+      /* position: absolute; */
       display: flex;
       flex-direction: column;
-      position: absolute;
       padding: 50px;
-      /* text-transform: uppercase; */
     }
 
     .text-container .box p {
@@ -49,19 +51,17 @@
     }
 
     .before {
-      /* z-index: 4; */
       color: rgb(145, 132, 132);
+      z-index: 1;
     }
-
+    
     .after {
-      opacity: 0;
-      transition: opacity 0.3 ease-in-out;
+      z-index: 3;
       color: #080808;
-      /* color: #fff; */
     }
 
     .spotlight {
-      /* z-index: 3; */
+      z-index: 2;
     }
 
   </style>
@@ -80,7 +80,7 @@
       </div>
       <div class="after box">
         <p>
-          The whites of your eyes turn black in low light. In turning divine, we tangle endlessly... like, lovers entwined. I know for the last time you will not be mine... so... give me the night... the night... the night...
+          The whites of your eyes turn black in low light. In turning divine, we tangle endlessly like, lovers entwined. I know for the last time you will not be mine, so... give me the night... the night... the night.
         </p>
         <p>
           The Night Belongs To You
