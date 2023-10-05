@@ -9,35 +9,99 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-size: 62.5%;
     }
 
     body {
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      background: #080808;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .spotlight {
       width: 200px;
       height: 200px;
-      background: #333;
+      background: #ff6d5a;
       position: absolute;
       border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
     }
+
+    .text-container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .text-container .box {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      padding: 50px;
+      /* text-transform: uppercase; */
+    }
+
+    .text-container .box p {
+      font-size: 4rem;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+
+    .before {
+      /* z-index: 4; */
+      color: rgb(145, 132, 132);
+    }
+
+    .after {
+      opacity: 0;
+      transition: opacity 0.3 ease-in-out;
+      color: #080808;
+      /* color: #fff; */
+    }
+
+    .spotlight {
+      /* z-index: 3; */
+    }
+
   </style>
 </head>
 <body>
-  <div class="spotlight"></div>
+  <div class="container">
+    <div class="spotlight"></div>
+    <div class="text-container">
+      <div class="before box">
+        <p>
+          When you live by daylight with angels at your side. In order now bestowed by the light of the sunrise. And you remember everything only 'til the sun recedes once again, and the night comes down like heaven.
+        </p>
+        <p>
+          The Night Does Not Belong to God
+        </p>
+      </div>
+      <div class="after box">
+        <p>
+          The whites of your eyes turn black in low light. In turning divine, we tangle endlessly... like, lovers entwined. I know for the last time you will not be mine... so... give me the night... the night... the night...
+        </p>
+        <p>
+          The Night Belongs To You
+        </p>
+      </div>
+    </div>
+  </div>
+  
   <script>
     const spotlight = document.querySelector('.spotlight');
+    const textContainer = document.querySelector('.text-container');
+    const hidden = document.querySelector('.after');
 
     document.addEventListener('mousemove', e => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+      const x = e.clientX;
+      const y = e.clientY;
 
-      spotlight.style.left = mouseX - 100 + 'px';
-      spotlight.style.top = mouseY - 100 + 'px'; 
+      spotlight.style.left = `${x - 100}px`;
+      spotlight.style.top = `${y - 100}px`;
     });
+
   </script>
 </body>
 </html>
