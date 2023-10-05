@@ -15,87 +15,93 @@
     body {
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      background: #080808;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .spotlight {
       width: 200px;
       height: 200px;
-      background: #333;
-      position: relative;
+      background: #ff6d5a;
+      position: absolute;
       border-radius: 50%;
-      z-index: 5;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    section {
-      padding: 10px;
-      margin: 0 auto;
+    .text-container {
+      position: relative;
+      z-index: 2;
     }
     
-    section .box {
+    .text-container .box {
       display: flex;
       flex-direction: column;
       position: absolute;
       padding: 50px;
+      /* text-transform: uppercase; */
     }
 
-    section .box h1 {
-      font-size: 3rem;
-      text-align: center;
-      padding-top: 50px;
-    }
-
-    section .box p {
+    .text-container .box p {
       font-size: 4rem;
+      padding-bottom: 40px;
+      text-align: center;
     }
 
     .before {
-      z-index: -1;
+      /* z-index: 4; */
+      color: rgb(145, 132, 132);
     }
 
     .after {
-      z-index: 10;
-      /* opacity: 0; */
-      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+      transition: opacity 0.3 ease-in-out;
+      color: #080808;
+      /* color: #fff; */
     }
+
+    .spotlight {
+      /* z-index: 3; */
+    }
+
   </style>
 </head>
 <body>
-  <div class="spotlight"></div>
-  <section>
-    <div class="before box">
-      <p>
-        When you live by daylight with angels at your side. In order now bestowed by the light of the sunrise. And you remember everything only 'til the sun recedes once again, and the night comes down like heaven.
-      </p>
-      <h1>The Night Does Not Belong to God</h1>
+  <div class="container">
+    <div class="spotlight"></div>
+    <div class="text-container">
+      <div class="before box">
+        <p>
+          When you live by daylight with angels at your side. In order now bestowed by the light of the sunrise. And you remember everything only 'til the sun recedes once again, and the night comes down like heaven.
+        </p>
+        <p>
+          The Night Does Not Belong to God
+        </p>
+      </div>
+      <div class="after box">
+        <p>
+          The whites of your eyes turn black in low light. In turning divine, we tangle endlessly... like, lovers entwined. I know for the last time you will not be mine... so... give me the night... the night... the night...
+        </p>
+        <p>
+          The Night Belongs To You
+        </p>
+      </div>
     </div>
-    <div class="after box">
-      <p>
-        The whites of your eyes turn black in low light. In turning divine, we tangle endlessly. Like lovers entwined, I know for the last time you will not be mine. So give me the night, the night, the night.
-      </p>
-      <h1>The Night Belongs To You</h1>
-    </div>
-  </section>
+  </div>
+  
   <script>
     const spotlight = document.querySelector('.spotlight');
+    const textContainer = document.querySelector('.text-container');
+    const hidden = document.querySelector('.after');
 
     document.addEventListener('mousemove', e => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+      const x = e.clientX;
+      const y = e.clientY;
 
-      spotlight.style.left = mouseX - 100 + 'px';
-      spotlight.style.top = mouseY - 100 + 'px'; 
+      spotlight.style.left = `${x - 100}px`;
+      spotlight.style.top = `${y - 100}px`;
     });
 
-    // const honesty = document.querySelector('.after');
-
-    // spotlight.addEventListener('mouseenter', () => {
-    //   honesty.style.opacity = 1;
-    // });
-
-    // spotlight.addEventListener('mouseleave', () => {
-    //   honesty.style.opacity = 0;
-    // });
   </script>
 </body>
 </html>
